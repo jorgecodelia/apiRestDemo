@@ -1,0 +1,38 @@
+server:
+  app:
+    auto: true
+  servlet:
+    context-path: /ms-test/v1
+
+spring:
+  profiles:
+    active: ${PROFILE:local}
+  application:
+    name: ms-test
+
+#Spring boot actuator config for health check
+endpoints:
+  health:
+    sensitive: false
+    mapping:
+      DOWN: SERVICE_UNAVAILABLE
+
+# Health Config
+management:
+  health:
+    db.enabled: false
+    diskspace.enabled: false
+    hystrix.enabled: false
+    rabbit.enabled: false
+    redis.enabled: false
+    refresh.enabled: false
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health
+
+gateway:
+  mock-server: "https://jsonplaceholder.typicode.com"
+  soap-server: "http://webservices.oorsprong.org/websamples.countryinfo"
+

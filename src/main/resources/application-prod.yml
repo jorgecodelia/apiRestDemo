@@ -1,0 +1,8 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+gateway:
+  mock-server: "https://jsonplaceholder.typicode.com"
+  soap-server: "http://webservices.oorsprong.org/websamples.countryinfo"

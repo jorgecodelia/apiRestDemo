@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+server:
+  port: 8080
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+
+#log config (only local)
+gateway:
+  mock-server: "https://jsonplaceholder.typicode.com"
+  soap-server: "http://webservices.oorsprong.org/websamples.countryinfo"
+
+
+logging:
+  value: INFO
+  level:
+    java.net.*: ${logging.value}
+    com.sun.*: ${logging.value}
+    org.apache.http.*: ${logging.value}
+    org.apache.http.impl.client: ${logging.value}
+    org.springframework.security.web.*: ${logging.value}
+    org.springframework.web: ${logging.value}
+    org.springframework.web.client.RestTemplate: ${logging.value}
+    org.springframework.cloud: ${logging.value}
+    org.springframework.integration: ${logging.value}
+    org.springframework.ws.client.MessageTracing.sent: ${logging.value}
+    org.springframework.ws.client.MessageTracing.received: ${logging.value}
+    root: ${logging.value}
+    api.*: ${logging.value}
